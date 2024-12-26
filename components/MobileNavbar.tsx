@@ -7,10 +7,11 @@ function MobileNavbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Searching for:", searchQuery);
   };
+  
 
   const toggleSearch = () => {
     setIsSearchOpen((prev) => !prev);

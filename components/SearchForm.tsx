@@ -4,11 +4,11 @@ import { useState } from "react";
 const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle search logic here
     console.log("Searching for:", searchQuery);
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="w-full sm:w-[50vw] md:w-[40vw] lg:w-[30vw]">
