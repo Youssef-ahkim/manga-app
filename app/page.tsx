@@ -15,27 +15,28 @@ export default function Home() {
     setLikedManga((prevLikedManga) => {
       const updatedLikedManga = [...prevLikedManga];
       updatedLikedManga[index] = !updatedLikedManga[index];
-      return updatedLikedManga;
-    });
 
-    setLikes((prevLikes) => {
-      const updatedLikes = [...prevLikes];
-      // Update likes based on the previous state value
-      if (likedManga[index]) {
-        updatedLikes[index] -= 1;
-      } else {
-        updatedLikes[index] += 1;
-      }
-      return updatedLikes;
+      // Update likes based on the new liked state
+      setLikes((prevLikes) => {
+        const updatedLikes = [...prevLikes];
+        if (updatedLikedManga[index]) {
+          updatedLikes[index] += 1;
+        } else {
+          updatedLikes[index] -= 1;
+        }
+        return updatedLikes;
+      });
+
+      return updatedLikedManga;
     });
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 ">
+    <div className="min-h-screen bg-gray-100 py-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-[12%] md:grid-cols-3 lg:grid-cols-4 gap-8 px-5 cursor-pointer lg:mt-[5%] md:mt-14">
         {mangaData.map((manga, index) => (
           <Link href={`/manga/${index}`} key={index}>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform md:hover:scale-105 lg:hover:scale-105 duration-500 hover:shadow-xl">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform md:hover:scale-105 lg:hover:scale-105 duration-500 lg:hover:shadow-xl">
               <Image
                 width={1000}
                 height={1000}

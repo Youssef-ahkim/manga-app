@@ -6,7 +6,8 @@ import mangaData from "../../../public/data"; // Adjust path if necessary
 export default function MangaDetails() {
   const { id } = useParams(); // Retrieve the dynamic route parameter
 
-  const manga = mangaData[id]; // Find manga by ID
+  // Ensure that id is converted to a number if mangaData is an array
+  const manga = mangaData[Number(id)];
 
   if (!manga) {
     return <div className="text-center mt-10">Manga not found</div>;
