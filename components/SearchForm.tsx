@@ -1,28 +1,23 @@
-'use client'
-import { useState } from "react";
+'use client';
+import { useState } from 'react';
 
-const SearchForm = () => {
+const SearchForm = ({ onSubmit }: { onSubmit: (query: string) => void }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Searching for:", searchQuery);
+    onSubmit(searchQuery); // Pass the query to the parent component
   };
-  
 
   return (
-    <form onSubmit={handleSubmit} className="w-full sm:w-[50vw] md:w-[40vw] lg:w-[30vw]">
-      <label
-        htmlFor="search"
-        className="mb-2 text-sm font-medium text-gray-900 hidden"
-      >
-        Search
-      </label>
+    <form
+      onSubmit={handleSubmit}
+      className="w-full sm:w-[50vw] md:w-[40vw] lg:w-[30vw]"
+    >
       <div className="relative">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
           <svg
             className="w-4 h-4 text-gray-800"
-            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 20 20"
@@ -38,7 +33,6 @@ const SearchForm = () => {
         </div>
         <input
           type="search"
-          id="search"
           className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500"
           placeholder="Search"
           value={searchQuery}

@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 mt-[12%] md:grid-cols-3 lg:grid-cols-4 gap-8 px-5 cursor-pointer lg:mt-[5%] md:mt-14">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-5 cursor-pointer ">
         {mangaData.map((manga, index) => (
           <Link href={`/manga/${index}`} key={index}>
             <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform md:hover:scale-105 lg:hover:scale-105 duration-500 lg:hover:shadow-xl">

@@ -15,7 +15,7 @@ export default function MangaDetails() {
 
   return (
     <div className="min-h-screen bg-gray-100 py-10">
-      <h1 className="text-4xl font-bold text-center mb-10 text-gray-800 mt-[7%] lg:mt-[5%] md:mt-12">
+      <h1 className="text-4xl font-bold text-center mb-10 text-gray-800">
         {manga.title}
       </h1>
       <div className="flex flex-col items-center">
